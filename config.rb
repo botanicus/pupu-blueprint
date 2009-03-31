@@ -5,15 +5,14 @@
 
 # TODO
 # :if => "ie"
-stylesheets "screen", :media => "screen, projection"
-stylesheets "print", :media => "print"
-stylesheets "ie"
+stylesheet "screen", :media => "screen, projection"
+stylesheet "print", :media => "print"
+stylesheet "ie"
 
 # parameters of plugin
 # it will be blank in most cases
-#parameter :request, :optional => ["local", "ajax"] do |type|
-#  javascript "lib/autocompleter.#{type}"
-#end
-
-# you can put there message which will be displayed after installation
-#message "foo"
+parameter :plugins do |plugins|
+  plugins.each do |plugin|
+    stylesheet "plugins/#{plugin}/screen", :media => "screen, projection"
+  end
+end
