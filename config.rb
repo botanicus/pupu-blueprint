@@ -5,14 +5,15 @@
 
 # TODO
 # :if => "ie"
-stylesheet "screen", :media => "screen, projection"
-stylesheet "print", :media => "print"
-stylesheet "ie"
+stylesheet "screen", media: "screen, projection"
+stylesheet "print", media: "print"
+stylesheet "ie", if: "lt IE 8"
+# <!--[if lt IE 8]><link rel="stylesheet" href="stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
 # parameters of plugin
 # it will be blank in most cases
 parameter :plugins do |plugins|
   plugins.each do |plugin|
-    stylesheet "plugins/#{plugin}/screen", :media => "screen, projection"
+    stylesheet "plugins/#{plugin}/screen", media: "screen, projection"
   end
 end
